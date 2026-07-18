@@ -1,0 +1,102 @@
+.hero {
+  min-height: calc(100vh - 80px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 80px;
+}
+
+.hero-content {
+  max-width: 900px;
+  text-align: center;
+}
+
+.hero-tag {
+  color: var(--primary-color);
+
+  font-size: 28px;
+  letter-spacing: 4px;
+
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  margin-bottom: 20px;
+}
+
+.hero h2 {
+  margin-bottom: 30px;
+}
+
+.hero-description {
+  margin-bottom: 50px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ===========================
+   Shared Button Styles
+=========================== */
+
+.primary-btn,
+.secondary-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px 36px;
+
+  color: var(--text-primary);
+  text-decoration: none;
+
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+}
+
+/* ===========================
+   Primary Button
+=========================== */
+
+.primary-btn,
+.primary-btn:link,
+.primary-btn:visited {
+  /*background-color: var(--primary-color);*/
+  background-color: transparent;
+  color: var(--text-primary);
+
+  border: 2px solid var(--primary-color);
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* ===========================
+   Secondary Button
+=========================== */
+
+.secondary-btn,
+.secondary-btn:link,
+.secondary-btn:visited {
+  background-color: transparent;
+
+  color: var(--text-primary);
+
+  border: 2px solid var(--primary-color);
+}
+
+.secondary-btn:hover {
+  background-color: var(--primary-color);
+}

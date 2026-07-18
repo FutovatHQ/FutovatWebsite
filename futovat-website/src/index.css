@@ -1,17 +1,108 @@
-@import "tailwindcss";
+:root {
+  /* ===========================
+     Colors
+  =========================== */
+
+  /* Backgrounds */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  /* Brand */
+  --primary-color: #25bdeb;
+  --primary-hover: #1ca0c8;
+
+  /* Borders */
+  --border-color: #334155;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+  /* Animation */
+  --transition: 0.3s ease;
+}
+
+/* ===========================
+   Reset
+=========================== */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: Inter, sans-serif;
-    background-color: #0F172A;
-    color: white;
+  font-family: "Inter", sans-serif;
+
+  background: var(--bg-primary);
+  color: var(--text-primary);
+
+  line-height: 1.6;
+
+  overflow-x: hidden;
+}
+
+/* ===========================
+   Typography
+=========================== */
+
+h1 {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+p {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ===========================
+   Global Elements
+=========================== */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }

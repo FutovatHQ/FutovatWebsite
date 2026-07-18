@@ -1,0 +1,64 @@
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  padding: 100px 80px;
+}
+
+.about-left {
+  flex: 1;
+}
+
+.about-left h2 {
+  margin-bottom: 30px;
+}
+
+.about-left p {
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.about-right {
+  flex: 1;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 25px;
+}
+
+.about-card {
+  background: var(--bg-secondary);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--radius-md);
+
+  padding: 35px;
+
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.about-card:hover {
+  transform: translateY(-8px);
+
+  border-color: var(--primary-color);
+
+  box-shadow: var(--shadow-md);
+}
+
+.about-card h3 {
+  font-size: 42px;
+
+  color: var(--primary-color);
+
+  margin-bottom: 10px;
+}
+
+.about-card p {
+  line-height: 1.8;
+}
