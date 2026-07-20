@@ -113,3 +113,41 @@
 .footer-contact a:hover {
   color: var(--primary-color);
 }
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 768px) {
+
+  .footer {
+    padding: 60px 40px 25px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 576px) {
+
+  .footer {
+    padding: 50px 20px 20px;
+  }
+
+  .footer-company,
+  .footer-links,
+  .footer-contact {
+    text-align: center;
+  }
+
+  .footer-company p {
+    max-width: 100%;
+  }
+
+}

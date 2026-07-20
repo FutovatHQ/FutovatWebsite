@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
 
 function Navbar() {
   const [activeSection, setActiveSection] = useState("hero");
-
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const sections = document.querySelectorAll("section");
 
@@ -37,10 +38,17 @@ function Navbar() {
       <div className="logo">
         <h2>FUTOVAT</h2>
       </div>
+      <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </div>
 
-      <ul className="nav-links">
+      <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
         <li>
-          <a href="#hero" className={activeSection === "hero" ? "active" : ""}>
+          <a
+            href="#hero"
+            className={activeSection === "hero" ? "active" : ""}
+            onClick={() => setMenuOpen(false)}
+          >
             Home
           </a>
         </li>
@@ -48,6 +56,7 @@ function Navbar() {
           <a
             href="#services"
             className={activeSection === "services" ? "active" : ""}
+            onClick={() => setMenuOpen(false)}
           >
             Services
           </a>
@@ -56,6 +65,7 @@ function Navbar() {
           <a
             href="#technologies"
             className={activeSection === "technologies" ? "active" : ""}
+            onClick={() => setMenuOpen(false)}
           >
             Technologies
           </a>
@@ -64,6 +74,7 @@ function Navbar() {
           <a
             href="#products"
             className={activeSection === "products" ? "active" : ""}
+            onClick={() => setMenuOpen(false)}
           >
             Products
           </a>
@@ -72,6 +83,7 @@ function Navbar() {
           <a
             href="#about"
             className={activeSection === "about" ? "active" : ""}
+            onClick={() => setMenuOpen(false)}
           >
             About
           </a>
@@ -80,6 +92,7 @@ function Navbar() {
           <a
             href="#contact"
             className={activeSection === "contact" ? "active" : ""}
+            onClick={() => setMenuOpen(false)}
           >
             Contact
           </a>

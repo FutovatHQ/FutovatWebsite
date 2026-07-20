@@ -62,3 +62,39 @@
 .about-card p {
   line-height: 1.8;
 }
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 992px) {
+
+  .about {
+    padding: 80px 40px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 576px) {
+
+  .about {
+    padding: 70px 20px;
+  }
+
+  .about-content {
+    text-align: center;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}

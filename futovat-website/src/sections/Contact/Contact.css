@@ -94,3 +94,31 @@
 .contact-form button:hover {
   background: var(--primary-hover);
 }
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 992px) {
+
+  .contact {
+    padding: 80px 40px;
+  }
+
+  .contact-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 576px) {
+
+  .contact {
+    padding: 70px 20px;
+  }
+
+}

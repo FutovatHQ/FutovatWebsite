@@ -100,3 +100,55 @@
 .secondary-btn:hover {
   background-color: var(--primary-color);
 }
+
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 80px 40px;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .hero {
+    padding: 70px 20px;
+
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 15px;
+  }
+
+  .hero-buttons a {
+    width: 100%;
+
+    max-width: 280px;
+
+    text-align: center;
+  }
+}

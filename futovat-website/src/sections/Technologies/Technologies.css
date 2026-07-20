@@ -49,3 +49,31 @@
 .technology-card p {
   line-height: 1.8;
 }
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 992px) {
+  .technologies {
+    padding: 80px 40px;
+  }
+
+  .technology-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 576px) {
+  .technologies {
+    padding: 70px 20px;
+  }
+
+  .technology-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -96,3 +96,34 @@
 .product-card button:hover {
   background: var(--primary-hover);
 }
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 992px) {
+
+  .products {
+    padding: 80px 40px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 576px) {
+
+  .products {
+    padding: 70px 20px;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
