@@ -8,7 +8,7 @@ namespace Futovat.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize]
+[AllowAnonymous]
 public class ContactController : ControllerBase
 {
     private readonly IContactService _contactService;

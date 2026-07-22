@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Contact.css";
+import { sendContact } from "../../services/contactService";
 
 function Contact() {
   const [form, setForm] = useState({
@@ -17,12 +18,26 @@ function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(form);
+    try {
+      await sendContact(form);
 
-    alert("Backend integration coming soon!");
+      alert("Message sent successfully!");
+
+      setForm({
+        name: "",
+        email: "",
+        company: "",
+        service: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error(error);
+
+      alert("Failed to send message.");
+    }
   };
 
   return (
@@ -64,6 +79,7 @@ function Contact() {
             placeholder="Your Name"
             value={form.name}
             onChange={handleChange}
+            required
           />
 
           <input
@@ -72,6 +88,7 @@ function Contact() {
             placeholder="Your Email"
             value={form.email}
             onChange={handleChange}
+            required
           />
 
           <input
@@ -82,7 +99,12 @@ function Contact() {
             onChange={handleChange}
           />
 
-          <select name="service" value={form.service} onChange={handleChange}>
+          <select
+            name="service"
+            value={form.service}
+            onChange={handleChange}
+            required
+          >
             <option value="">Select a Service</option>
             <option>Web Development</option>
             <option>Mobile Development</option>
@@ -98,6 +120,7 @@ function Contact() {
             placeholder="Tell us about your project..."
             value={form.message}
             onChange={handleChange}
+            required
           />
 
           <button type="submit">Send Message</button>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
+import Logo from "../../assets/logo.png";
 
 function Navbar() {
   const [activeSection, setActiveSection] = useState("hero");
@@ -36,7 +37,14 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="logo">
-        <h2>FUTOVAT</h2>
+        <img
+          src={Logo}
+          alt="Futovat"
+          style={{
+            width: "300px",
+            marginRight: "10px",
+          }}
+        />
       </div>
       <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? <FaTimes /> : <FaBars />}

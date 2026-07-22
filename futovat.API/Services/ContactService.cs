@@ -9,10 +9,14 @@ namespace Futovat.API.Services;
 public class ContactService : IContactService
 {
     private readonly ApplicationDbContext _context;
+    private readonly IEmailService _emailService;
 
-    public ContactService(ApplicationDbContext context)
+    public ContactService(
+        ApplicationDbContext context,
+        IEmailService emailService)
     {
         _context = context;
+        _emailService = emailService;
     }
 
     public async Task<bool> CreateContactAsync(ContactRequest request)
@@ -29,6 +33,14 @@ public class ContactService : IContactService
         _context.Contacts.Add(contact);
 
         await _context.SaveChangesAsync();
+
+        await _emailService.SendContactEmailAsync(
+            contact.Name!,
+            contact.Email!,
+            contact.Company ?? "",
+            contact.Service!,
+            contact.Message!
+        );
 
         return true;
     }

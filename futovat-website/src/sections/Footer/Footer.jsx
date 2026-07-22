@@ -6,7 +6,7 @@ function Footer() {
       <div className="footer-content">
         <div className="footer-company">
           <h2>FUTOVAT</h2>
-          <span>Innovate. Build. Grow.</span>
+          <span>Innovate. Build. Elevate.</span>
 
           <p>
             Building innovative software solutions for businesses, startups, and
