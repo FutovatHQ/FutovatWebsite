@@ -11,6 +11,8 @@ function Contact() {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -20,6 +22,10 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
 
     try {
       await sendContact(form);
@@ -35,8 +41,9 @@ function Contact() {
       });
     } catch (error) {
       console.error(error);
-
       alert("Failed to send message.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -44,7 +51,6 @@ function Contact() {
     <section id="contact" className="contact">
       <div className="section-header">
         <h2>Get In Touch</h2>
-
         <p>Have a project in mind? We'd love to hear from you.</p>
       </div>
 
@@ -123,7 +129,20 @@ function Contact() {
             required
           />
 
-          <button type="submit">Send Message</button>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className={isSubmitting ? "loading" : ""}
+          >
+            {isSubmitting ? (
+              <>
+                <span className="spinner"></span>
+                Sending...
+              </>
+            ) : (
+              "Send Message"
+            )}
+          </button>
         </form>
       </div>
     </section>
