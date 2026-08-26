@@ -14,7 +14,25 @@ export default function Contacts() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    loadContacts();
+    let cancelled = false;
+
+    const fetchContacts = async () => {
+      try {
+        const response = await getContacts();
+
+        if (!cancelled) {
+          setContacts(response);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchContacts();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const loadContacts = async () => {

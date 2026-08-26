@@ -46,7 +46,15 @@ const technologies = [
 function Technologies() {
   return (
     <section id="technologies" className="technologies">
-      <div className="section-header">
+      <div className="technology-background">
+        <div className="technology-glow"></div>
+        <div className="technology-ring technology-ring-one"></div>
+        <div className="technology-ring technology-ring-two"></div>
+      </div>
+
+      <div className="section-header technology-header">
+        <span className="section-eyebrow">OUR TECH STACK</span>
+
         <h2>Technologies We Use</h2>
 
         <p>
@@ -55,21 +63,31 @@ function Technologies() {
         </p>
       </div>
 
-      <div className="technology-grid">
-        {technologies.map((technology) => {
-          const Icon = technology.icon;
+      <div className="technology-showcase">
+        <div className="technology-center">
+          <span>FUTOVAT</span>
+          <small>TECH STACK</small>
+        </div>
 
-          return (
-            <div className="technology-card" key={technology.name}>
-              <h3>
-                <Icon className="technology-icon" />
-                {technology.name}
-              </h3>
+        <div className="technology-grid">
+          {technologies.map((technology) => {
+            const Icon = technology.icon;
 
-              <p>{technology.description}</p>
-            </div>
-          );
-        })}
+            return (
+              <div className="technology-card" key={technology.name}>
+                <div className="technology-icon-wrapper">
+                  <Icon className="technology-icon" />
+                </div>
+
+                <div className="technology-content">
+                  <h3>{technology.name}</h3>
+
+                  <p>{technology.description}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

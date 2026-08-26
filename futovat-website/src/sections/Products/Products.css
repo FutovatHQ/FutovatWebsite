@@ -1,21 +1,63 @@
 .products {
-  padding: 100px 80px;
+  position: relative;
+
+  padding: 120px 80px;
+
+  overflow: hidden;
 }
+
+/* ===========================
+   Section Header
+=========================== */
+
+.products-header {
+  max-width: 850px;
+
+  margin-bottom: 70px;
+}
+
+/* ===========================
+   Product Grid
+=========================== */
 
 .products-grid {
+  max-width: 1400px;
+
+  margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 22px;
 }
 
+/* ===========================
+   Product Card
+=========================== */
+
 .product-card {
-  background: var(--bg-secondary);
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  border-radius: var(--radius-lg);
 
   border: 1px solid var(--border-color);
 
-  border-radius: var(--radius-md);
+  background: linear-gradient(
+    145deg,
+    rgba(28, 43, 67, 0.94),
+    rgba(14, 27, 47, 0.96)
+  );
 
-  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
 
   transition:
     transform var(--transition),
@@ -23,93 +65,291 @@
     box-shadow var(--transition);
 }
 
+/* ===========================
+   Hover
+=========================== */
+
 .product-card:hover {
   transform: translateY(-8px);
 
-  border-color: var(--primary-color);
+  border-color: rgba(37, 189, 235, 0.4);
 
-  box-shadow: var(--shadow-md);
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.28),
+    0 0 30px rgba(37, 189, 235, 0.06);
 }
 
+/* ===========================
+   Product Image
+=========================== */
+
 .product-image {
-  height: 180px;
+  position: relative;
+
+  height: 210px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(135deg, var(--primary-color), #1e293b);
+  overflow: hidden;
 
-  color: white;
-
-  font-weight: 600;
+  background: linear-gradient(145deg, #172b45, #0d1c31);
 }
 
-.product-status {
-  display: inline-block;
+/* ===========================
+   Product Image
+=========================== */
 
-  margin: 25px 25px 10px;
+.product-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: top center;
+
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.04);
+}
+
+/* ===========================
+   Image Overlay
+=========================== */
+
+.product-image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background: linear-gradient(180deg, transparent 55%, rgba(5, 13, 27, 0.22));
+}
+
+/* ===========================
+   Placeholder
+=========================== */
+
+.product-placeholder {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  width: 100%;
+  height: 100%;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(37, 189, 235, 0.12),
+    transparent 55%
+  );
+}
+
+.product-placeholder span {
+  color: var(--text-primary);
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.product-placeholder small {
+  color: var(--primary-color);
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+/* ===========================
+   Product Content
+=========================== */
+
+.product-content {
+  display: flex;
+
+  flex-direction: column;
+
+  flex: 1;
+
+  padding: 25px;
+}
+
+/* ===========================
+   Status
+=========================== */
+
+.product-status {
+  align-self: flex-start;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  margin-bottom: 18px;
 
   padding: 6px 12px;
 
+  border: 1px solid rgba(37, 189, 235, 0.18);
+
   border-radius: 999px;
 
-  background: rgba(56, 189, 248, 0.15);
+  background: rgba(37, 189, 235, 0.08);
 
   color: var(--primary-color);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+
+  text-transform: uppercase;
+}
+
+/* ===========================
+   Product Title
+=========================== */
+
+.product-card h3 {
+  margin-bottom: 12px;
+
+  font-size: 23px;
+
+  font-weight: 600;
+
+  letter-spacing: -0.3px;
+}
+
+/* ===========================
+   Description
+=========================== */
+
+.product-card p {
+  margin-bottom: 28px;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+/* ===========================
+   Button
+=========================== */
+
+.product-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  align-self: flex-start;
+
+  gap: 9px;
+
+  margin-top: auto;
+
+  padding: 11px 18px;
+
+  border: 1px solid rgba(37, 189, 235, 0.35);
+
+  border-radius: var(--radius-sm);
+
+  background: rgba(37, 189, 235, 0.05);
+
+  color: var(--text-primary);
 
   font-size: 14px;
 
   font-weight: 600;
-}
-
-.product-card h3 {
-  margin: 10px 25px 15px;
-}
-
-.product-card p {
-  margin: 0 25px 30px;
-
-  line-height: 1.8;
-}
-
-.product-card button {
-  margin: 0 25px 25px;
-
-  padding: 12px 24px;
-
-  border: none;
-
-  border-radius: var(--radius-sm);
-
-  background: var(--primary-color);
-
-  color: white;
-
-  font-size: 16px;
 
   cursor: pointer;
 
-  transition: background var(--transition);
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
 }
 
-.product-card button:hover {
-  background: var(--primary-hover);
+.product-button span {
+  color: var(--primary-color);
+
+  font-size: 17px;
+
+  transition: transform var(--transition);
 }
+
+.product-button:hover {
+  border-color: var(--primary-color);
+
+  background: rgba(37, 189, 235, 0.1);
+
+  transform: translateY(-2px);
+}
+
+.product-button:hover span {
+  transform: translateX(4px);
+}
+
+/* ===========================
+   Primary Product Button
+=========================== */
+
+.product-button-primary {
+  border-color: var(--primary-color);
+
+  background: var(--primary-color);
+
+  color: #06111f;
+
+  box-shadow: 0 8px 20px rgba(37, 189, 235, 0.12);
+}
+
+.product-button-primary span {
+  color: #06111f;
+}
+
+.product-button-primary:hover {
+  background: var(--primary-hover);
+
+  border-color: var(--primary-hover);
+
+  box-shadow: 0 10px 25px rgba(37, 189, 235, 0.2);
+}
+
 /* ===========================
    Tablet
 =========================== */
 
-@media (max-width: 992px) {
-
+@media (max-width: 1100px) {
   .products {
-    padding: 80px 40px;
+    padding: 100px 40px;
   }
 
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
 
+    gap: 22px;
+  }
 }
 
 /* ===========================
@@ -117,13 +357,29 @@
 =========================== */
 
 @media (max-width: 576px) {
-
   .products {
-    padding: 70px 20px;
+    padding: 80px 20px;
+  }
+
+  .products-header {
+    margin-bottom: 45px;
   }
 
   .products-grid {
     grid-template-columns: 1fr;
+
+    gap: 18px;
   }
 
+  .product-image {
+    height: 200px;
+  }
+
+  .product-content {
+    padding: 22px;
+  }
+
+  .product-card h3 {
+    font-size: 22px;
+  }
 }

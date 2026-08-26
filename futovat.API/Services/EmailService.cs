@@ -34,9 +34,11 @@ public class EmailService : IEmailService
 
         var mail = new MailMessage();
 
+        // Email account used to send the message
         mail.From = new MailAddress(from!);
 
-        mail.To.Add(from!);
+        // All contact form inquiries are delivered here
+        mail.To.Add("info@futovat.com");
 
         mail.Subject = "New Contact Inquiry - Futovat";
 

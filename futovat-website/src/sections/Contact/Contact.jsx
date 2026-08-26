@@ -49,101 +49,172 @@ function Contact() {
 
   return (
     <section id="contact" className="contact">
-      <div className="section-header">
-        <h2>Get In Touch</h2>
-        <p>Have a project in mind? We'd love to hear from you.</p>
+      <div className="contact-background">
+        <div className="contact-glow"></div>
+        <div className="contact-ring"></div>
+      </div>
+
+      <div className="section-header contact-header">
+        <span className="section-eyebrow">LET'S CONNECT</span>
+
+        <h2>Let's Build Something Together.</h2>
+
+        <p>
+          Have a project in mind? We'd love to hear from you and explore how
+          Futovat can help turn your ideas into reality.
+        </p>
       </div>
 
       <div className="contact-container">
         <div className="contact-info">
-          <h3>Contact Information</h3>
+          <div className="contact-info-header">
+            <span>CONTACT INFORMATION</span>
 
-          <p>
-            Let's discuss how Futovat can help turn your ideas into reality.
-          </p>
+            <h3>Start a Conversation</h3>
 
-          <div className="info-item">
-            <strong>Email</strong>
-            <span>contact@futovat.com</span>
+            <p>
+              Tell us what you're building, what you're trying to solve, or
+              simply what you have in mind. We'll take it from there.
+            </p>
           </div>
 
-          <div className="info-item">
-            <strong>Location</strong>
-            <span>India</span>
+          <div className="contact-details">
+            <div className="info-item">
+              <span className="info-label">EMAIL</span>
+
+              <a href="mailto:info@futovat.com">info@futovat.com</a>
+            </div>
+
+            <div className="info-item">
+              <span className="info-label">LOCATION</span>
+
+              <span>India</span>
+            </div>
+
+            <div className="info-item">
+              <span className="info-label">WORKING HOURS</span>
+
+              <span>Monday - Friday</span>
+
+              <small>9:00 AM - 6:00 PM</small>
+            </div>
           </div>
 
-          <div className="info-item">
-            <strong>Working Hours</strong>
-            <span>Monday - Friday | 9:00 AM - 6:00 PM</span>
+          <div className="contact-company">
+            <span>FUTOVAT</span>
+
+            <p>
+              A product brand of <strong>Arcadia Zygnex Tech LLP</strong>
+            </p>
           </div>
         </div>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
+        <div className="contact-form-wrapper">
+          <div className="contact-form-heading">
+            <span>PROJECT INQUIRY</span>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
+            <h3>Tell Us About Your Project</h3>
+          </div>
 
-          <input
-            type="text"
-            name="company"
-            placeholder="Company (Optional)"
-            value={form.company}
-            onChange={handleChange}
-          />
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-row">
+              <div className="form-field">
+                <label htmlFor="name">Your Name</label>
 
-          <select
-            name="service"
-            value={form.service}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select a Service</option>
-            <option>Web Development</option>
-            <option>Mobile Development</option>
-            <option>Desktop Applications</option>
-            <option>Game Development</option>
-            <option>AI Solutions</option>
-            <option>Cloud Solutions</option>
-          </select>
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  placeholder="Enter your name"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-          <textarea
-            rows="6"
-            name="message"
-            placeholder="Tell us about your project..."
-            value={form.message}
-            onChange={handleChange}
-            required
-          />
+              <div className="form-field">
+                <label htmlFor="email">Your Email</label>
 
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className={isSubmitting ? "loading" : ""}
-          >
-            {isSubmitting ? (
-              <>
-                <span className="spinner"></span>
-                Sending...
-              </>
-            ) : (
-              "Send Message"
-            )}
-          </button>
-        </form>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-field">
+                <label htmlFor="company">Company</label>
+
+                <input
+                  id="company"
+                  type="text"
+                  name="company"
+                  placeholder="Company (Optional)"
+                  value={form.company}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-field">
+                <label htmlFor="service">Service</label>
+
+                <select
+                  id="service"
+                  name="service"
+                  value={form.service}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">Select a Service</option>
+                  <option>Web Development</option>
+                  <option>Mobile Development</option>
+                  <option>Desktop Applications</option>
+                  <option>Game Development</option>
+                  <option>AI Solutions</option>
+                  <option>Cloud Solutions</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="form-field">
+              <label htmlFor="message">Project Details</label>
+
+              <textarea
+                id="message"
+                rows="6"
+                name="message"
+                placeholder="Tell us about your project..."
+                value={form.message}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className={isSubmitting ? "loading" : ""}
+            >
+              {isSubmitting ? (
+                <>
+                  <span className="spinner"></span>
+                  Sending...
+                </>
+              ) : (
+                <>
+                  Send Message
+                  <span>→</span>
+                </>
+              )}
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   );

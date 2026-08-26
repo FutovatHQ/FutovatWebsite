@@ -3,11 +3,10 @@
      Colors
   =========================== */
 
-  /* Backgrounds */
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
+  --bg-primary: #0b1224;
+  --bg-secondary: #151f35;
+  --bg-tertiary: #1b2942;
 
-  /* Text */
   --text-primary: #ffffff;
   --text-secondary: #cbd5e1;
   --text-muted: #94a3b8;
@@ -15,18 +14,23 @@
   /* Brand */
   --primary-color: #25bdeb;
   --primary-hover: #1ca0c8;
+  --primary-soft: rgba(37, 189, 235, 0.12);
+  --primary-glow: rgba(37, 189, 235, 0.22);
 
   /* Borders */
-  --border-color: #334155;
+  --border-color: rgba(148, 163, 184, 0.16);
+  --border-light: rgba(255, 255, 255, 0.08);
 
   /* Border Radius */
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 16px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
-  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.25);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.28);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.35);
 
   /* Animation */
   --transition: 0.3s ease;
@@ -42,14 +46,33 @@
   box-sizing: border-box;
 }
 
+/* ===========================
+   Base
+=========================== */
+
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
   font-family: "Inter", sans-serif;
 
-  background: var(--bg-primary);
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(37, 189, 235, 0.07),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 25%,
+      rgba(37, 189, 235, 0.05),
+      transparent 28%
+    ),
+    linear-gradient(180deg, #0b1224 0%, #0d162a 45%, #0b1224 100%);
+
+  background-attachment: fixed;
+
   color: var(--text-primary);
 
   line-height: 1.6;
@@ -58,19 +81,50 @@ body {
 }
 
 /* ===========================
+   Subtle Background Texture
+=========================== */
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+
+  background-size: 60px 60px;
+
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+
+  z-index: -1;
+}
+
+/* ===========================
    Typography
 =========================== */
 
+h1,
+h2,
+h3 {
+  color: var(--text-primary);
+}
+
 h1 {
-  font-size: 72px;
+  font-size: clamp(48px, 6vw, 72px);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
 }
 
 h2 {
-  font-size: 42px;
+  font-size: clamp(34px, 4vw, 42px);
   font-weight: 700;
   line-height: 1.2;
+  letter-spacing: -0.5px;
 }
 
 h3 {
@@ -105,4 +159,56 @@ ul {
 img {
   display: block;
   max-width: 100%;
+}
+
+/* ===========================
+   Text Selection
+=========================== */
+
+::selection {
+  background: var(--primary-color);
+  color: #06111f;
+}
+
+/* ===========================
+   Focus
+=========================== */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+/* ===========================
+   Scrollbar
+=========================== */
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080f1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #263750;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* ===========================
+   Utility
+=========================== */
+
+.glow {
+  box-shadow:
+    0 0 0 1px rgba(37, 189, 235, 0.08),
+    0 0 30px rgba(37, 189, 235, 0.08);
 }

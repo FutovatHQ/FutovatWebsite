@@ -1,6 +1,16 @@
 import "./Products.css";
 
+import BetaLeafSample from "../../assets/images/BetaLeafSample.png";
+
 const products = [
+  {
+    title: "BetaLeaf",
+    description:
+      "A simple platform where authors can share their books with beta readers, gather feedback and reviews, and improve their stories before publishing.",
+    status: "Launching Soon",
+    button: "Coming Soon",
+    image: BetaLeafSample,
+  },
   {
     title: "Saga",
     description:
@@ -27,7 +37,9 @@ const products = [
 function Products() {
   return (
     <section id="products" className="products">
-      <div className="section-header">
+      <div className="section-header products-header">
+        <span className="section-eyebrow">WHAT WE CREATE</span>
+
         <h2>Our Products</h2>
 
         <p>
@@ -38,19 +50,42 @@ function Products() {
 
       <div className="products-grid">
         {products.map((product) => (
-          <div className="product-card" key={product.title}>
+          <article className="product-card" key={product.title}>
             <div className="product-image">
-              <span>Product Preview</span>
+              {product.image ? (
+                <>
+                  <img src={product.image} alt={`${product.title} preview`} />
+
+                  <div className="product-image-overlay"></div>
+                </>
+              ) : (
+                <div className="product-placeholder">
+                  <span>PRODUCT</span>
+                  <small>PREVIEW</small>
+                </div>
+              )}
             </div>
 
-            <span className="product-status">{product.status}</span>
+            <div className="product-content">
+              <span className="product-status">{product.status}</span>
 
-            <h3>{product.title}</h3>
+              <h3>{product.title}</h3>
 
-            <p>{product.description}</p>
+              <p>{product.description}</p>
 
-            <button>{product.button}</button>
-          </div>
+              <button
+                className={
+                  product.status === "Launching Soon"
+                    ? "product-button product-button-primary"
+                    : "product-button"
+                }
+              >
+                {product.button}
+
+                <span>→</span>
+              </button>
+            </div>
+          </article>
         ))}
       </div>
     </section>
